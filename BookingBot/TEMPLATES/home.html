@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Chatbot Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   	<style>
+         h1 {
+           font-size: 32px;
+           font-weight: bold;
+           font-family: arial, sans-serif;
+         }
+         p {
+           font-size: 18px;
+           font-weight: bold;
+           font-family: arial, sans-serif;
+         }
+
+	     iframe {
+         width: 70%;
+	     height: 600px;
+	     border: none;
+		 }
+	</style>
+</head>
+<body>
+	<h1>Welcome to BookBot!</h1>
+	<iframe src="https://d177tu4j6rq9m0.cloudfront.net/index.html">
+<!--    <iframe src="https://d177tu4j6rq9m0.cloudfront.net/index.html#/?lexWebUiEmbed=true"></iframe>-->
+    <p>Powered by Lexbot and Django, Authored by Daniel Zambello</p>
+	<div id="lex-web-ui"></div>
+	<script src="https://d177tu4j6rq9m0.cloudfront.net/lex-web-ui-loader.min.js"></script>
+	<script>
+		var loaderOpts = {
+			baseUrl: 'https://d177tu4j6rq9m0.cloudfront.net/',
+			shouldLoadMinDeps: true
+		};
+		var loader = new ChatBotUiLoader.IframeLoader(loaderOpts);
+		var chatbotUiConfig = {
+			/* Example of setting session attributes on parent page
+			lex: {
+				sessionAttributes: {
+					userAgent: navigator.userAgent,
+					QNAClientFilter: ''
+				}
+			}
+			*/
+		};
+		loader.load(chatbotUiConfig)
+			.catch(function (error) { console.error(error); });
+	</script>
+</body>
+</html>
